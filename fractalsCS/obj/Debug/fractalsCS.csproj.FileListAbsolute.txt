@@ -1,0 +1,8 @@
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\bin\Debug\fractalsCS.exe
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\bin\Debug\fractalsCS.pdb
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.csprojResolveAssemblyReference.cache
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.Form1.resources
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.Properties.Resources.resources
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.csproj.GenerateResource.Cache
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.exe
+C:\Uni\Visual Studio\fractalsCS\fractalsCS\obj\Debug\fractalsCS.pdb
