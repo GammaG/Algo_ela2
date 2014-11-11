@@ -71,7 +71,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(57, 20);
             this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "100";            
+            this.textBox2.Text = "100";
             // 
             // label2
             // 
@@ -90,6 +90,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
