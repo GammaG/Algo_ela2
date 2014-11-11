@@ -10,32 +10,20 @@ namespace fractalsCS
 {
     public partial class Form1 : Form
     {
-        private int sleepTime=10;
+        //private int sleepTime=10;
         
         SolidBrush br = new SolidBrush(Color.White);
         SolidBrush bl = new SolidBrush(Color.Black);
         Pen pen1 = new Pen(Color.Black);
         Pen pen2 = new Pen(Color.White);
-        List<SolidBrush> colors;
+     
        
      
 
         public Form1()
         {
             InitializeComponent();
-            setColors();
-        }
-
-        private void setColors()
-        {
-            colors = new List<SolidBrush>();
-            colors.Add(new SolidBrush(Color.Aqua));
-            colors.Add(new SolidBrush(Color.Red));
-            colors.Add(new SolidBrush(Color.Pink));
-            colors.Add(new SolidBrush(Color.SaddleBrown));
-            colors.Add(new SolidBrush(Color.SlateGray));
-            colors.Add(new SolidBrush(Color.Silver));
-
+           
         }
 
 
