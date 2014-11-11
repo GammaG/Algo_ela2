@@ -13,9 +13,12 @@ namespace fractalsCS
         private int sleepTime=10;
         
         SolidBrush br = new SolidBrush(Color.White);
+        SolidBrush bl = new SolidBrush(Color.Black);
         Pen pen1 = new Pen(Color.Black);
+        Pen pen2 = new Pen(Color.White);
         List<SolidBrush> colors;
-
+       
+     
 
         public Form1()
         {
@@ -42,10 +45,12 @@ namespace fractalsCS
             {
                 Graphics g = pictureBox1.CreateGraphics();
 
-                g.Clear(Color.White);
-
+                g.Clear(Color.Black);
+              
                 int ratioRects = int.Parse(textBox2.Text);
+             
 
+             
                 drawType1(g, 100, 100, ratioRects);
 
                 pictureBox1.Update();
@@ -64,8 +69,8 @@ namespace fractalsCS
 
             int ratioRects = int.Parse(textBox2.Text);
 
-           // g.TranslateTransform(100, 100);
             drawType2(g, 100, 100, ratioRects);
+
 
             pictureBox1.Update();
         }
@@ -83,26 +88,39 @@ namespace fractalsCS
             pictureBox1.Update();
         }
 
+       
+
         private void drawType1(Graphics g, int x, int y, int ratioRects)
         {
             if (ratioRects > 0)
             {
-              
+
 
                 int newRatio = ratioRects / 2;
+                int halfRation = Convert.ToInt32((newRatio / 2)*1.5);
+                int newSize = Convert.ToInt32(newRatio*1.5);
 
-                drawType1(g, x - newRatio, y + newRatio, newRatio);
 
-                drawType1(g, x - newRatio, y - newRatio, newRatio);
+                drawType1(g, x, y, newRatio);  //Main
+                drawType1(g, x - newRatio, y + newRatio, newRatio); //down left
+                drawType1(g, x + newRatio, y + newRatio, newRatio); //down right
+                drawType1(g, x - newRatio, y - newRatio, newRatio); //top left
+                drawType1(g, x + newRatio, y - newRatio, newRatio); //top right
 
-                drawType1(g, x + newRatio, y - newRatio, newRatio);
 
-                g.FillRectangle(br, x, y, ratioRects, ratioRects);
-                g.DrawRectangle(pen1, x, y, ratioRects, ratioRects);
+                int newx = x - halfRation;
+                int newy = y - halfRation;
 
-                System.Threading.Thread.Sleep(sleepTime);
+                g.FillRectangle(br, newx, newy, newSize, newSize);
+                g.DrawRectangle(pen2, newx, newy, newSize,newSize);
+
+                //System.Threading.Thread.Sleep(sleepTime);
+
+               
             }
         }
+
+
 
         private void drawType2(Graphics g, int x, int y, int ratioRects)
         {
@@ -118,15 +136,15 @@ namespace fractalsCS
                 drawType2(g, x + newRatio, y + newRatio, newRatio); //down right
                 drawType2(g, x - newRatio, y - newRatio, newRatio); //top left
                 drawType2(g, x + newRatio, y - newRatio, newRatio); //top right
-                
 
-                int newx = x - halfRation ;
-                int newy = y - halfRation ;
+
+                int newx = x - halfRation;
+                int newy = y - halfRation;
 
                 g.FillRectangle(br, newx, newy, newRatio, newRatio);
                 g.DrawRectangle(pen1, newx, newy, newRatio, newRatio);
 
-                System.Threading.Thread.Sleep(sleepTime);
+                //System.Threading.Thread.Sleep(sleepTime);
             }
         }
 
