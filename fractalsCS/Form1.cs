@@ -111,13 +111,13 @@ namespace fractalsCS
                
                 int newRatio = ratioRects / 2;
                 int halfRation = newRatio/2;
+               
 
-
-                drawType2(g, x  , y  , newRatio);  //Main
-                drawType2(g, x - newRatio, y + newRatio, halfRation); //down left
-                drawType2(g, x + newRatio, y + newRatio, halfRation); //down right
-                drawType2(g, x - newRatio, y - newRatio, halfRation); //top left
-                drawType2(g, x + newRatio, y - newRatio, halfRation); //top right
+                drawType2(g, x , y  , newRatio);  //Main
+                drawType2(g, x - newRatio, y + newRatio, newRatio); //down left
+                drawType2(g, x + newRatio, y + newRatio, newRatio); //down right
+                drawType2(g, x - newRatio, y - newRatio, newRatio); //top left
+                drawType2(g, x + newRatio, y - newRatio, newRatio); //top right
                 
 
                 int newx = x - halfRation ;
