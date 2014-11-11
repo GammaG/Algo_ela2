@@ -10,7 +10,7 @@ namespace fractalsCS
 {
     public partial class Form1 : Form
     {
-        //private int sleepTime=10;
+        private int sleepTime=10;
         
         SolidBrush br = new SolidBrush(Color.White);
         SolidBrush bl = new SolidBrush(Color.Black);
@@ -29,24 +29,15 @@ namespace fractalsCS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Graphics g = pictureBox1.CreateGraphics();
+            Graphics g = pictureBox1.CreateGraphics();
 
-                g.Clear(Color.Black);
-              
-                int ratioRects = int.Parse(textBox2.Text);
-             
+            g.Clear(Color.White);
 
-             
-                drawType1(g, 100, 100, ratioRects);
+            int ratioRects = int.Parse(textBox2.Text);
 
-                pictureBox1.Update();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            star(g, 100, 100, ratioRects);
+
+            pictureBox1.Update();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -65,6 +56,28 @@ namespace fractalsCS
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Graphics g = pictureBox1.CreateGraphics();
+
+                g.Clear(Color.Black);
+
+                int ratioRects = int.Parse(textBox2.Text);
+
+
+
+                drawType1(g, 100, 100, ratioRects);
+
+                pictureBox1.Update();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
             Graphics g = pictureBox1.CreateGraphics();
 
             g.Clear(Color.White);
@@ -76,7 +89,26 @@ namespace fractalsCS
             pictureBox1.Update();
         }
 
-       
+
+        private void star(Graphics g, int x, int y, int ratioRects)
+        {
+            if (ratioRects > 0)
+            {
+                int newRatio = ratioRects / 2;
+
+                star(g, x - newRatio, y + newRatio, newRatio);
+
+                star(g, x - newRatio, y - newRatio, newRatio);
+
+                star(g, x + newRatio, y - newRatio, newRatio);
+
+                g.FillRectangle(br, x, y, ratioRects, ratioRects);
+                g.DrawRectangle(pen1, x, y, ratioRects, ratioRects);
+
+                System.Threading.Thread.Sleep(sleepTime);
+            }
+        }
+
 
         private void drawType1(Graphics g, int x, int y, int ratioRects)
         {
@@ -170,6 +202,8 @@ namespace fractalsCS
                               
             }
         }
+
+       
           
 
 
