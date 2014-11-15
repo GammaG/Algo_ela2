@@ -168,7 +168,7 @@ namespace fractalsCS
             }
         }
 
-        private void drawType3(Graphics g, int x, int y, int ratioRects)
+        private void old_drawType3(Graphics g, int x, int y, int ratioRects)
         {
             if (ratioRects > 20)
             {
@@ -203,7 +203,40 @@ namespace fractalsCS
             }
         }
 
-       
+        private void drawType3(Graphics g, int x, int y, int ratioRects)
+        {
+            if (ratioRects > 0)
+            {
+
+
+                int newRatio = ratioRects / 2;
+
+                int halfRation = newRatio / 2;
+
+                int factor = Convert.ToInt32(newRatio / 8);
+
+
+                drawType3(g, x + halfRation - factor, y + halfRation - factor, newRatio - factor * 2); //down left
+                drawType3(g, x - halfRation + factor, y + halfRation - factor, newRatio - factor * 2); //down right
+                drawType3(g, x - halfRation + factor, y - halfRation + factor, newRatio - factor * 2); //top left
+                drawType3(g, x + halfRation - factor, y - halfRation + factor, newRatio - factor * 2); //top right
+
+
+
+                int newx = x - newRatio;
+                int newy = y - newRatio;
+
+                g.DrawEllipse(pen1, newx, newy, newRatio * 2, newRatio * 2);
+                if (ratioRects > 40)
+                {
+                    int xx = x - Convert.ToInt32(newRatio * 1.2);
+                    int yy = y - Convert.ToInt32(newRatio * 1.2);
+                    g.DrawEllipse(pen1, xx, yy, Convert.ToInt32(newRatio * 2.4), Convert.ToInt32(newRatio * 2.4));
+                }
+
+
+            }
+        }
           
 
 
